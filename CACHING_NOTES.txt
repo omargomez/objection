@@ -1,0 +1,26 @@
+MacBook Pro 2.93 GHz Intel Core 2 Duo - 4GB 1067 MHz DDR
+
+First Attempt:
+
+  With Caching:  
+    UISpecs[93665:207] Time: 0.250938
+    UISpecs[93668:207] Time: 0.258875
+    UISpecs[93669:207] Time: 0.258755
+    UISpecs[93670:207] Time: 0.272762
+    UISpecs[93672:207] Time: 0.252302
+    UISpecs[93673:207] Time: 0.247691
+
+    Average: 0.256887
+  
+  Without Caching:
+
+    UISpecs[93731:207] Time: 0.172323
+    UISpecs[93733:207] Time: 0.175590
+    UISpecs[93734:207] Time: 0.164345
+    UISpecs[93735:207] Time: 0.185924
+    UISpecs[93737:207] Time: 0.171141
+    UISpecs[93738:207] Time: 0.163926
+
+    Average: 0.172208
+    
+  Failure: Too much indirection using NSDictionary and String parsing. Significantly slower than simply looking up the property again.

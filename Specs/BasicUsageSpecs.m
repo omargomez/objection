@@ -79,8 +79,11 @@ it(@"calls awakeFromObjection when an object has been constructed", ^{
 });
 
 it(@"is OK to ask for a object more than once", ^{
-  [[Objection globalInjector] getObject:[Car class]];
-  [[Objection globalInjector] getObject:[Car class]];
+  NSDate *start = [NSDate date];
+  for (int i = 0; i < 10000; i++) {
+    [[Objection globalInjector] getObject:[Car class]];    
+  }
+  NSLog(@"Time: %f", [[NSDate date] timeIntervalSinceDate:start]);
 });
 
 SPEC_END

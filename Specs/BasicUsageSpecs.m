@@ -78,4 +78,9 @@ it(@"calls awakeFromObjection when an object has been constructed", ^{
   assertThatBool([car awake], equalToBool(YES));
 });
 
+it(@"is OK to ask for a object more than once", ^{
+  [[Objection globalInjector] getObject:[Car class]];
+  [[Objection globalInjector] getObject:[Car class]];
+});
+
 SPEC_END

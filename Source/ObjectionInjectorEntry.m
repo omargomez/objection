@@ -1,6 +1,7 @@
 #import "ObjectionInjectorEntry.h"
 #import "Objection.h"
 #import "ObjectionFunctions.h"
+#import "ObjectionPropertyAttributesTable.h"
 
 @interface ObjectionInjectorEntry()
 - (void)notifyObjectThatItIsReady: (id)object;
@@ -57,8 +58,7 @@
   	id objectUnderConstruction = [[[self.classEntry alloc] init] autorelease];
     
     for (NSString *propertyName in properties) {
-      objc_property_t property = ObjectionGetProperty(self.classEntry, propertyName);
-      ObjectionPropertyInfo propertyInfo = ObjectionFindClassOrProtocolForProperty(property);
+      ObjectionPropertyInfo propertyInfo = [ObjectionPropertyAttributesTable lookupProperty:propertyName forClass:self.classEntry];
       id desiredClassOrProtocol = propertyInfo.object;
       // Ensure that the class is initialized before attempting to retrieve it.
       // Using +load would force all registered classes to be initialized so we are

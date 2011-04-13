@@ -9,6 +9,7 @@
 #import "NSObject+Objection.h"
 #import "ObjectionInjectorEntry.h"
 #import "ObjectionFunctions.h"
+#import "ObjectionPropertyAttributesTable.h"
 
 #define objection_register(value)			\
   + (void)initialize { \
